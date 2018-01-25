@@ -19,17 +19,21 @@ export default class CryptoStreamer extends React.Component {
         subscription: [
           '5~CCCAGG~BTC~USD',
           '5~CCCAGG~ETH~USD',
-          '5~CCCAGG~PIVX~USD',
-          '5~CCCAGG~LTC~USD',
-          '5~CCCAGG~BCH~USD',
-          '5~CCCAGG~DASH~USD',
-          '5~CCCAGG~LSK~USD',
-          '5~CCCAGG~DCR~USD',
-          '5~CCCAGG~SNT~USD',
-          '5~CCCAGG~IOT~USD',
-          '5~CCCAGG~VEN~USD',
           '5~CCCAGG~XRP~USD',
-          '5~CCCAGG~ADA~USD'
+          '5~CCCAGG~BCH~USD',
+          '5~CCCAGG~ADA~USD',
+          '5~CCCAGG~XLM~USD',
+          '5~CCCAGG~LTC~USD',
+          '5~CCCAGG~NEO~USD',
+          '5~CCCAGG~EOS~USD',
+          '5~CCCAGG~XEM~USD',
+          '5~CCCAGG~IOT~USD',
+          '5~CCCAGG~DASH~USD',
+          '5~CCCAGG~XMR~USD',
+          '5~CCCAGG~TRX~USD',
+          '5~CCCAGG~VEN~USD',
+          '5~CCCAGG~BTG~USD',
+          '5~CCCAGG~QTUM~USD'
         ]
       };
     }
@@ -113,8 +117,8 @@ export default class CryptoStreamer extends React.Component {
       }
     }
 
-    handleFormatVolume = (volume) => {
-      const n = parseFloat(volume).toFixed(2);
+    handleFormatNumber = (number) => {
+      const n = parseFloat(number).toFixed(2);
       return '$ ' + Number(n).toLocaleString('en');
     }
 
@@ -131,7 +135,7 @@ export default class CryptoStreamer extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField='PRICE'
-              dataFormat={ this.handleFormatVolume }
+              dataFormat={ this.handleFormatNumber }
               columnClassName={ this.handlePriceDirection }
               dataSort>Price
             </TableHeaderColumn>
@@ -147,8 +151,13 @@ export default class CryptoStreamer extends React.Component {
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField='VOLUME24HOURTO'
-              dataFormat={ this.handleFormatVolume }
+              dataFormat={ this.handleFormatNumber }
               dataSort>Volume 24h $
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataField='HIGH24HOUR'
+              dataFormat={ this.handleFormatNumber }
+              dataSort>24h High
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField='LASTMARKET'
