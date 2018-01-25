@@ -15,7 +15,6 @@ export default class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        key: 1,
         currentPrice: {},
         cryptos: [],
         subscription: [ '5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD', '5~CCCAGG~PIVX~USD', '5~CCCAGG~LTC~USD', '5~CCCAGG~BCH~USD', '5~CCCAGG~DASH~USD', '5~CCCAGG~LSK~USD', '5~CCCAGG~DCR~USD', '5~CCCAGG~SNT~USD', '5~CCCAGG~IOT~USD', '5~CCCAGG~VEN~USD', '5~CCCAGG~XRP~USD', '5~CCCAGG~ADA~USD' ]
@@ -81,12 +80,6 @@ export default class App extends React.Component {
       socket.emit('SubRemove', { subs: this.state.subscription } );
     }
 
-    handleTabChange = (key) => {
-      this.setState({
-        key
-      });
-    }
-
     handlePriceDirection = (price, cryptoObject) => {
       // 1 = Price Up, 2 = Price Down, 4 = Price Unchanged
       if (cryptoObject.FLAGS === '1') {
@@ -126,48 +119,41 @@ export default class App extends React.Component {
             <img src={logo} className="App-logo" alt="logo" />
           </header>
           <div className='col-md-offset-1 col-md-10'>
-            <Tabs id='tabs' activeKey={ this.state.key } onSelect={ this.handleTabChange } animation>
-              <Tab eventKey={ 1 } title='All'>
-                <button type='button' onClick={ this.handleStartStream } className='btn btn-success'>Start Stream</button>
-                <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
+            <button type='button' onClick={ this.handleStartStream } className='btn btn-success'>Start Stream</button>
+            <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
 
-                <BootstrapTable ref='allTable' data={ this.state.cryptos } options={ tableOptions } pagination search>
-                  <TableHeaderColumn
-                    dataField='FROMSYMBOL'
-                    isKey dataSort>Symbol
-                  </TableHeaderColumn>
-                  <TableHeaderColumn
-                    dataField='PRICE'
-                    dataFormat={ this.handleFormatVolume }
-                    columnClassName={ this.handlePriceDirection }
-                    dataSort>Price
-                  </TableHeaderColumn>
-                  <TableHeaderColumn
-                    dataField='CHANGE24HOUR'
-                    columnClassName={ this.handlePriceChange }
-                    dataSort>Change 24h $
-                  </TableHeaderColumn>
-                  <TableHeaderColumn
-                    dataField='CHANGE24HOURPCT'
-                    columnClassName={ this.handlePriceChange }
-                    dataSort>Change 24h %
-                  </TableHeaderColumn>
-                  <TableHeaderColumn
-                    dataField='VOLUME24HOURTO'
-                    dataFormat={ this.handleFormatVolume }
-                    dataSort>Volume 24h $
-                  </TableHeaderColumn>
-                  <TableHeaderColumn
-                    dataField='LASTMARKET'
-                    columnClassName={ 'exchange' }
-                    dataSort>Exchange
-                  </TableHeaderColumn>
-                </BootstrapTable>
-              </Tab>
-              <Tab eventKey={ 2 } title='Coins'>Table of Coins</Tab>
-              <Tab eventKey={ 3 } title='Tokens'>Table of Tokens</Tab>
-              <Tab eventKey={ 4 } title='Portfolio'>Portfolio Table</Tab>
-            </Tabs>
+            <BootstrapTable ref='allTable' data={ this.state.cryptos } options={ tableOptions } pagination search>
+              <TableHeaderColumn
+                dataField='FROMSYMBOL'
+                isKey dataSort>Symbol
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField='PRICE'
+                dataFormat={ this.handleFormatVolume }
+                columnClassName={ this.handlePriceDirection }
+                dataSort>Price
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField='CHANGE24HOUR'
+                columnClassName={ this.handlePriceChange }
+                dataSort>Change 24h $
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField='CHANGE24HOURPCT'
+                columnClassName={ this.handlePriceChange }
+                dataSort>Change 24h %
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField='VOLUME24HOURTO'
+                dataFormat={ this.handleFormatVolume }
+                dataSort>Volume 24h $
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField='LASTMARKET'
+                columnClassName={ 'exchange' }
+                dataSort>Exchange
+              </TableHeaderColumn>
+            </BootstrapTable>
           </div>
         </div>
       );
