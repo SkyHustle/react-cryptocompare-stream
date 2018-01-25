@@ -119,19 +119,12 @@ export default class CryptoStreamer extends React.Component {
     }
 
     render() {
-      const tableOptions = {
-        prePage: <i className='glyphicon glyphicon-chevron-left' />,
-        nextPage: <i className='glyphicon glyphicon-chevron-right' />,
-        firstPage: <i className='glyphicon glyphicon-step-backward' />,
-        lastPage: <i className='glyphicon glyphicon-step-forward' />
-      };
-
       return (
         <div className='col-md-offset-1 col-md-10'>
           <button type='button' onClick={ this.handleStartStream } className='btn btn-success'>Start Stream</button>
           <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
 
-          <BootstrapTable ref='allTable' data={ this.state.cryptos } options={ tableOptions } pagination search>
+          <BootstrapTable ref='allTable' data={ this.state.cryptos } search>
             <TableHeaderColumn
               dataField='FROMSYMBOL'
               isKey dataSort>Symbol
