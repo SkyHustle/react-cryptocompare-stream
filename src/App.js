@@ -2,7 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Tabs, Tab } from 'react-bootstrap';
 import CCC from './ccc-streamer-utilities';
 
 // Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
@@ -17,7 +16,21 @@ export default class App extends React.Component {
       this.state = {
         currentPrice: {},
         cryptos: [],
-        subscription: [ '5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD', '5~CCCAGG~PIVX~USD', '5~CCCAGG~LTC~USD', '5~CCCAGG~BCH~USD', '5~CCCAGG~DASH~USD', '5~CCCAGG~LSK~USD', '5~CCCAGG~DCR~USD', '5~CCCAGG~SNT~USD', '5~CCCAGG~IOT~USD', '5~CCCAGG~VEN~USD', '5~CCCAGG~XRP~USD', '5~CCCAGG~ADA~USD' ]
+        subscription: [
+          '5~CCCAGG~BTC~USD',
+          '5~CCCAGG~ETH~USD',
+          '5~CCCAGG~PIVX~USD',
+          '5~CCCAGG~LTC~USD',
+          '5~CCCAGG~BCH~USD',
+          '5~CCCAGG~DASH~USD',
+          '5~CCCAGG~LSK~USD',
+          '5~CCCAGG~DCR~USD',
+          '5~CCCAGG~SNT~USD',
+          '5~CCCAGG~IOT~USD',
+          '5~CCCAGG~VEN~USD',
+          '5~CCCAGG~XRP~USD',
+          '5~CCCAGG~ADA~USD'
+        ]
       };
     }
 
@@ -92,7 +105,7 @@ export default class App extends React.Component {
     }
 
     handlePriceChange = (priceChange) => {
-      // Check to see if price has a '-'
+      // Check to see if price has a negative symbol '-'
       if (/[-]/.test(priceChange)) {
         return 'down';
       } else {
