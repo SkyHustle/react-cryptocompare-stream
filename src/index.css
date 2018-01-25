@@ -2,4 +2,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: black;
+  font-size: 17px;
+  color: white;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+.unchanged {
+ color: orange;
+}
+
+.exchange {
+  color: #42f492;
 }
