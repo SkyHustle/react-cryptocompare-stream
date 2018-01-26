@@ -24,6 +24,7 @@
   ],
   "author": "Dmitry Vizer",
   "license": "MIT",
+  "homepage": "https://dmitry1007.github.io/react-cryptocompare-stream/",
   "dependencies": {
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
