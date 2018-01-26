@@ -1,19 +1,19 @@
 ![App ScreenShot](./app-screanshot.png?raw=true "React CryptoCompare Stream")
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app){:target="_blank"}.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-This project allows you to stream real time crypto currency data using [Socket.io](https://socket.io/){:target="_blank"} by pluging into CryptoCompare's web socket [api](https://www.cryptocompare.com/api/?javascript#-api-web-socket-){:target="_blank"}. It also comes with [react-bootstrap-table](https://allenfang.github.io/react-bootstrap-table/index.html){:target="_blank"} so you could integrate any type of table you like. This project just comes with sortable colums and a search bar, but you can implement any one of the too many to list features that comes with this amazing library [Allen Fang](https://github.com/AllenFang){:target="_blank"} built!
+This project allows you to stream real time crypto currency data using [Socket.io](https://socket.io/) by pluging into CryptoCompare's web socket [api](https://www.cryptocompare.com/api/?javascript#-api-web-socket-). It also comes with [react-bootstrap-table](https://allenfang.github.io/react-bootstrap-table/index.html) so you could integrate any type of table you like. This project just comes with sortable colums and a search bar, but you can implement any one of the too many to list features that comes with this amazing library [Allen Fang](https://github.com/AllenFang) built!
 
-I've included 17 of the largest cryptos by market cap in this implementation but you can simply add as many as CryptoCompare supports(they don't have streaming data for every crypto out there). Just add another string to the subscription Array in `/src/CryptoStreamer.js` in the same format as the rest: '5~CCCAGG~SYMBOL~USD'
+I've included 17 of the largest cryptos by market cap in this implementation but you can simply add as many as CryptoCompare supports(they don't have streaming data for every crypto out there). Just add another string to the subscription Array in `/src/CryptoStreamer.js` in the same format as the rest.
 
 Feel free to create a PR if you would like to update any part of the code :)
 
 
 ### Get Started
-`git clone git@github.com:Dmitry1007/react-cryptocompare-stream.git`
-`cd react-cryptocompare-stream`
-`npm install`
-`npm start`
+- `git clone git@github.com:Dmitry1007/react-cryptocompare-stream.git`
+- `cd react-cryptocompare-stream`
+- `npm install`
+- `npm start`
 
 
 ##### Example Bitcoin JSON Object you get back from CryptoCompare
