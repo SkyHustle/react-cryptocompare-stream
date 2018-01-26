@@ -68,7 +68,6 @@ export default class CryptoStreamer extends React.Component {
         (currentPrice[pair].PRICE - currentPrice[pair].OPEN24HOUR) /
         currentPrice[pair].OPEN24HOUR * 100).toFixed(2) + '%';
 
-      // console.log(currentPrice[pair], from, tsym, fsym);
       // Check cryptos array for like objects and replace each crypto with updated version
       const indexOfCrypto = this.state.cryptos.indexOf(currentPrice[pair]);
       if (indexOfCrypto === -1) {
@@ -76,7 +75,6 @@ export default class CryptoStreamer extends React.Component {
       } else {
         this.state.cryptos[indexOfCrypto] = currentPrice[pair];
       }
-      // console.log(this.state.cryptos);
       this.setState({ cryptos: this.state.cryptos });
     }
 
