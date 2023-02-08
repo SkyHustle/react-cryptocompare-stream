@@ -11,7 +11,7 @@ Feel free to create a PR if you would like to update any part of the code :)
 
 
 ### Get Started
-- `git clone git@github.com:Dmitry1007/react-cryptocompare-stream.git`
+- `git clone https://github.com/Dmitry1007/react-cryptocompare-stream.git`
 - `cd react-cryptocompare-stream`
 - `npm install`
 - `npm start`
